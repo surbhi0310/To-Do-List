@@ -9,21 +9,33 @@
 <body>
     <div class="container">
         <div id="newtask">
-            <input id= input type="text" placeholder="Task to be done..."/>
-            <button class="btn">Add</button>
+            <input id= "input" type="text" placeholder="Task to be done..."/>
+            <button id ="btn" class="btn">Add</button>
         </div>
-        <div id="tasks"></div>
+        <div id="tasks">
+            <div class="task">Hello
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-QKVvbdnaMFeI3bOMeSt962_oAMIOteeFkQ&s" alt="">
+            </div>
+        </div>
     </div>
     <script>
         const addBtn = document.getElementById("btn");
         addBtn.addEventListener("click", ()=>{
-            const task = createElement("div");
             const tasks = document.getElementById("tasks");
             const input = document.getElementById("input");
+            const taskText = input.value.trim();
+
+            if (taskText !== ""){
+            const task = document.createElement("div");
+            task.classList.add("task");
+            const image = document.createElement("img");
+            image.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-QKVvbdnaMFeI3bOMeSt962_oAMIOteeFkQ&s";
+            task.textContent = taskText;
             tasks.appendChild(task);
-            const inputText = input.textContent;
-            task.appendChild.inputText;
-        }) 
+            task.appendChild(image);
+            input.value = "";
+            }
+        });
     </script>
 </body>
 </html>
