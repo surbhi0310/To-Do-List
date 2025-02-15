@@ -21,6 +21,10 @@ body{
     position: absolute;
     transform: translate(-50% -50%);
     padding:40px 58px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #newtask{
@@ -71,4 +75,21 @@ body{
 
     
 }
-
+.task{
+    background: linear-gradient(#cfcaca, #fffdfd), 
+              linear-gradient(to right, rgb(175, 8, 111), purple);
+    background-origin: padding-box, border-box;
+    background-repeat: no-repeat; /* this is important */
+    border: 3px solid transparent;
+    border-radius: 2px;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+img{
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
