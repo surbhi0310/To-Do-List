@@ -13,9 +13,9 @@
             <button id ="btn" class="btn">Add</button>
         </div>
         <div id="tasks">
-            <div class="task">Hello
+            <!-- <div class="task">Hello
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-QKVvbdnaMFeI3bOMeSt962_oAMIOteeFkQ&s" alt="">
-            </div>
+            </div> -->
         </div>
     </div>
     <script>
@@ -25,17 +25,58 @@
             const input = document.getElementById("input");
             const taskText = input.value.trim();
 
-            if (taskText !== ""){
+            if (taskText === ""){
+                alert("Enter your Task...");
+                return;
+            }
+            //Create a task container
             const task = document.createElement("div");
             task.classList.add("task");
-            const image = document.createElement("img");
-            image.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-QKVvbdnaMFeI3bOMeSt962_oAMIOteeFkQ&s";
-            task.textContent = taskText;
+            //Create task text
+            const taskSpan = document.createElement("span");
+            taskSpan.textContent = taskText;
+            taskSpan.contentEditable = false; //Default to non-editable
+
+            //Create icon container
+            const iconsDiv = document.createElement("div");
+            iconsDiv.classList.add("icons");
+            //Edit button
+            const editBtn = document.createElement("img");
+            editBtn.src = "https://cdn-icons-png.flaticon.com/512/1827/1827933.png"
+            editBtn.alt = "Edit";
+            editBtn.title = "Edit Task";
+
+            //Delete Button (image)
+            const deleteBtn = document.createElement("img");
+            deleteBtn.src = "https://cdn-icons-png.flaticon.com/512/3096/3096673.png"; // Delete icon
+            deleteBtn.alt = "Delete";
+            deleteBtn.title = "Delete Task";
+
+            //Append Elements
+            iconsDiv.appendChild(editBtn);
+            iconsDiv.appendChild(deleteBtn);
+            task.appendChild(taskSpan);
+            task.appendChild(iconsDiv);
             tasks.appendChild(task);
-            task.appendChild(image);
-            input.value = "";
-            }
+            input.value = "";//Clear input field
+            
+            deleteBtn.addEventListener("click", ()=>{
+                console.log("event.target");
+                task.remove();
+            });
+            //Toggle edit mode
+            editBtn.addEventListener("click", () => {
+                if (taskSpan.contentEditable === "false") {
+                    taskSpan.contentEditable = "true";
+                    taskSpan.focus();
+                    editBtn.style.opacity = "0.5"; // Indicate edit mode
+                } else {
+                    taskSpan.contentEditable = "false";
+                    editBtn.style.opacity = "1"; // Back to normal
+                }
+            });
         });
     </script>
 </body>
 </html>
+
