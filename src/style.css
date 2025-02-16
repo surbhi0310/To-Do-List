@@ -28,7 +28,7 @@ body{
 }
 
 #newtask{
-    width: 350px;
+    width: 500px;
     background-color: white;
     padding:30px 25px;
     border-radius: 5px;
@@ -82,14 +82,22 @@ body{
     background-repeat: no-repeat; /* this is important */
     border: 3px solid transparent;
     border-radius: 2px;
-    padding: 10px;
-    margin: 10px;
+    padding: 7px;
+    margin: 7px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-img{
-    width: 30px;
-    height: 30px;
-    margin-left: 10px;
+.task span {
+    flex-grow: 1;
+    padding: 6px;
+}
+.icons {
+    display: flex;
+    gap: 10px;
+}
+.icons img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }
